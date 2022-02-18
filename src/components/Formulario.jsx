@@ -1,4 +1,8 @@
+import { useState, useEffect } from 'react';
+
 const Formulario = () => {
+
+    const [nombre, setNombre] = useState('Hook');
     return (
         <div className="md:w-1/2 lg:w-2/5">
             <h2 className="font-black text-3xl text-center">Seguimiento Paciente</h2>
@@ -9,11 +13,11 @@ const Formulario = () => {
             </p>
             <form className="bg-white shadow-md rounded-lg py-5 px-5 mb-10">
                 <div className="mb-5">
-                    <label 
+                    <label
                         className="block text-gray-700 px-2 uppercase font-bold"
                         htmlFor="mascota"
                     >Nombre Mascota</label>
-                    <input 
+                    <input
                         id="mascota"
                         type="text"
                         placeholder="Nombre de la Mascota"
@@ -21,11 +25,11 @@ const Formulario = () => {
                     />
                 </div>
                 <div className="mb-5">
-                    <label 
+                    <label
                         className="block text-gray-700 px-2 uppercase font-bold"
                         htmlFor="propietario"
                     >Nombre Propietario</label>
-                    <input 
+                    <input
                         id="propietario"
                         type="text"
                         placeholder="Nombre del Propietario"
@@ -33,11 +37,11 @@ const Formulario = () => {
                     />
                 </div>
                 <div className="mb-5">
-                    <label 
+                    <label
                         className="block text-gray-700 px-2 uppercase font-bold"
                         htmlFor="email"
                     >Email</label>
-                    <input 
+                    <input
                         id="email"
                         type="email"
                         placeholder="Email Contacto Propietario"
@@ -45,22 +49,22 @@ const Formulario = () => {
                     />
                 </div>
                 <div className="mb-5">
-                    <label 
+                    <label
                         className="block text-gray-700 px-2 uppercase font-bold"
                         htmlFor="alta"
                     >Alta</label>
-                    <input 
+                    <input
                         id="alta"
                         type="date"
                         className="border-2 w-full p-2 m-2 placeholder-gray-400 rounded-md"
                     />
                 </div>
                 <div className="mb-5">
-                    <label 
+                    <label
                         className="block text-gray-700 px-2 uppercase font-bold"
                         htmlFor="sintomas"
                     >Sintomas</label>
-                    <textarea 
+                    <textarea
                         id="alta"
                         type="date"
                         className="border-2 w-full p-2 m-2 placeholder-gray-400 rounded-md"
