@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Error from './Error';
 
 const Formulario = ({ pacientes, setPacientes }) => {
 
@@ -16,9 +17,11 @@ const Formulario = ({ pacientes, setPacientes }) => {
         //validacion formularion
         if ([nombre, propietario, email, fecha, sintomas].includes('')) {
             setError(true);
+        } else {
+            setError(false);
         }
 
-        setError(false);
+
 
         const objetoPaciente = {
             nombre,
@@ -29,6 +32,17 @@ const Formulario = ({ pacientes, setPacientes }) => {
         }
 
         setPacientes([...pacientes, objetoPaciente]);
+
+        //resetear states
+        const resetearStates = () => {
+        setNombre('');
+        setPropietario('');
+        setEmail('');
+        setFecha('');
+        setSintomas('');
+        }
+
+        resetearStates();
 
     }
 
@@ -44,11 +58,7 @@ const Formulario = ({ pacientes, setPacientes }) => {
                 onSubmit={handleSubmit}
                 className="bg-white shadow-md rounded-lg py-5 px-5 mb-10"
             >
-                {error && (
-                    <div className='bg-red-800 text-white uppercase text-center p-3 font-bold mb-3 rounded-lg'>
-                        <p>Todos los campos son obligatorios</p>
-                    </div>
-                )}
+                {error && <Error mensaje='Todos los campos son obligatorios' />}
                 <div className="mb-5">
                     <label
                         className="block text-gray-700 px-2 uppercase font-bold"
