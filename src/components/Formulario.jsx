@@ -8,8 +8,17 @@ const Formulario = () => {
     const [fecha, setFecha] = useState('');
     const [sintomas, setSintomas] = useState('');
 
-    const handleSubmit = (e) =>{
+    const [error, setError] = useState(false);
+
+    const handleSubmit = (e) => {
         e.preventDefault();
+
+        //validacion formularion
+        if ([nombre, propietario, email, fecha, sintomas].includes('')) {
+            setError(true);
+        }else{
+            setError(false)
+        }
 
     }
 
@@ -22,9 +31,14 @@ const Formulario = () => {
                 </span>
             </p>
             <form
-                onSubmit={handleSubmit} 
+                onSubmit={handleSubmit}
                 className="bg-white shadow-md rounded-lg py-5 px-5 mb-10"
             >
+                {error && (
+                    <div className='bg-red-800 text-white uppercase text-center p-3 font-bold mb-3 rounded-lg'>
+                        <p>Todos los campos son obligatorios</p>
+                    </div>
+                )}
                 <div className="mb-5">
                     <label
                         className="block text-gray-700 px-2 uppercase font-bold"
@@ -91,7 +105,7 @@ const Formulario = () => {
                         className="border-2 w-full p-2 m-2 placeholder-gray-400 rounded-md"
                         placeholder="Describe los sintomas"
                         value={sintomas}
-                        onChange={(e) => setNombre(e.target.value)}
+                        onChange={(e) => setSintomas(e.target.value)}
                     />
                 </div>
                 <input
