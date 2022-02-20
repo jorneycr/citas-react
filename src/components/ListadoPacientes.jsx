@@ -10,9 +10,9 @@ const ListadoPacientes = ({ pacientes }) => {
         Administra tus {' '}
         <spam className="text-indigo-600 font-bold">Pacientes y Citas</spam>
       </p>
-      {pacientes.map((pacient, i) => (
+      {pacientes.map(pacient => (
         <Paciente
-          key={i}
+          key={pacient.id}
           pacient={pacient}
         />
       ))}
