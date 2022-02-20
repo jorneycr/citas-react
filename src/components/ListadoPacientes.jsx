@@ -10,7 +10,12 @@ const ListadoPacientes = ({ pacientes }) => {
         Administra tus {' '}
         <spam className="text-indigo-600 font-bold">Pacientes y Citas</spam>
       </p>
-      <Paciente />
+      {pacientes.map((pacient, i) => (
+        <Paciente
+          key={i}
+          pacient={pacient}
+        />
+      ))}
 
     </div>
   )

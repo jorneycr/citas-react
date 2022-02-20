@@ -16,7 +16,7 @@ const Formulario = ({ pacientes, setPacientes }) => {
 
         //validacion formularion
         if ([nombre, propietario, email, fecha, sintomas].includes('')) {
-            setError(true);
+            return setError(true);
         } else {
             setError(false);
         }
