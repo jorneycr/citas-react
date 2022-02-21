@@ -10,7 +10,7 @@ const ListadoPacientes = ({ pacientes, setPaciente }) => {
           <h2 className="font-black text-3xl text-center">ListadoPacientes</h2>
           <p className="text-lg mt-5 mb-5 text-center">
             Administra tus {' '}
-            <spam className="text-indigo-600 font-bold">Pacientes y Citas</spam>
+            <span className="text-indigo-600 font-bold">Pacientes y Citas</span>
           </p>
           {pacientes.map(pacient => (
             <Paciente
@@ -25,13 +25,10 @@ const ListadoPacientes = ({ pacientes, setPaciente }) => {
           <h2 className="font-black text-3xl text-center">No hay Pacientes</h2>
           <p className="text-lg mt-5 mb-5 text-center">
             Comienza agregando pacientes {' '}
-            <spam className="text-indigo-600 font-bold">ya mismo</spam>
+            <span className="text-indigo-600 font-bold">ya mismo</span>
           </p>
         </>
       )}
-
-
-
     </div>
   )
 }
