@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Error from './Error';
 
-const Formulario = ({ pacientes, setPacientes, paciente }) => {
+const Formulario = ({ pacientes, setPacientes, paciente, setPaciente }) => {
 
     const [nombre, setNombre] = useState('');
     const [propietario, setPropietario] = useState('');
@@ -26,7 +26,6 @@ const Formulario = ({ pacientes, setPacientes, paciente }) => {
         }
     }, [paciente])
 
-
     const generarId = () => {
         const random = Math.random().toString(36).substr(2);
         const fecha = Date.now().toString(36);
@@ -43,32 +42,35 @@ const Formulario = ({ pacientes, setPacientes, paciente }) => {
             setError(false);
         }
 
-
-
         const objetoPaciente = {
             nombre,
             propietario,
             email,
             fecha,
-            sintomas,
-            id: generarId()
+            sintomas
         }
 
-        setPacientes([...pacientes, objetoPaciente]);
+        
+        if (paciente.id) {
+            //editando registro
+            objetoPaciente.id = paciente.id;
+            const pacientesActaulizados = pacientes.map(pacienteState => pacienteState.id === paciente.id ? objetoPaciente : pacienteState);
+
+            setPacientes(pacientesActaulizados);
+            setPaciente({});
+
+        } else {
+            //nuevo registro
+            objetoPaciente.id = generarId();
+            setPacientes([...pacientes, objetoPaciente]);
+        }
 
         //resetear states
-        const resetearStates = () => {
-            setNombre('');
-            setPropietario('');
-            setEmail('');
-            setFecha('');
-            setSintomas('');
-        }
-
-        resetearStates();
-
-
-
+        setNombre('');
+        setPropietario('');
+        setEmail('');
+        setFecha('');
+        setSintomas('');
 
     }
 
