@@ -45,4 +45,4 @@ const Paciente = ({ paciente, setPaciente, eliminarPaciente }) => {
     )
 }
 
-export default Paciente
+export default Paciente;
